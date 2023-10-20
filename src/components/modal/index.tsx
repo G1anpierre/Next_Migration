@@ -1,9 +1,9 @@
-import { Dialog, Transition } from '@headlessui/react'
+import {Dialog, Transition} from '@headlessui/react'
 import * as React from 'react'
-import { Fragment, useState } from 'react'
-import { X } from 'react-feather'
+import {Fragment, useState} from 'react'
+import {X} from 'react-feather'
 
-import { GhostButton } from '../button'
+import {GhostButton} from '../button'
 
 interface DialogProps {
   trigger?: any
@@ -29,6 +29,8 @@ export function DialogComponent({
     setIsOpen(true)
   }
 
+  console.log('trigger', trigger)
+
   return (
     <>
       {trigger && <div onClick={openModal}>{trigger}</div>}
@@ -42,7 +44,7 @@ export function DialogComponent({
         be invoked programatically in the CommentForm if a user tries to
         send a comment without being signed in.  
       */}
-      {children && children({ closeModal, openModal })}
+      {children && children({closeModal, openModal})}
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
@@ -101,7 +103,7 @@ export function DialogComponent({
                       we can close the dialog and then redirect the user
                       to the new bookmark view.
                     */}
-                    {modalContent({ closeModal, openModal })}
+                    {modalContent({closeModal, openModal})}
                   </div>
                 </div>
               </div>
